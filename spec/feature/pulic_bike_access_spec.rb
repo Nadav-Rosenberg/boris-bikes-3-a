@@ -1,4 +1,6 @@
+require 'docking_station'
 require 'capybara/rspec'
+
 feature 'member of the public access bike' do
   scenario 'docking station releases a bike that is not broken' do
     docking_station = DockingStation.new
