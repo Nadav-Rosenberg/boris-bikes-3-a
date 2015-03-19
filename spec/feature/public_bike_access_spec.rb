@@ -8,4 +8,9 @@ feature 'member of the public access bike' do
     bike = docking_station.release_bike
     expect(bike).not_to be_broken
   end
+
+  scenario 'docking station does not release a bike when it is empty' do
+    docking_station = DockingStation.new
+    expect(docking_station.release_bike).to raise_error 'No Bikes Available'
+  end
 end
