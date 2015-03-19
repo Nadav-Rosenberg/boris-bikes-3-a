@@ -11,6 +11,6 @@ feature 'member of the public access bike' do
 
   scenario 'docking station does not release a bike when it is empty' do
     docking_station = DockingStation.new
-    expect(docking_station.release_bike).to raise_error 'No Bikes Available'
+    expect { docking_station.release_bike }.to raise_error 'No Bikes Available'
   end
 end
