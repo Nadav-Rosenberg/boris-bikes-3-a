@@ -5,4 +5,7 @@ describe DockingStation do
   it 'can dock a bike' do
     expect(subject.dock :bike).to eq :bike
   end
+  it 'raises error when no bikes available' do
+    expect { subject.release_bike }.to raise_error 'No Bikes Available'
+  end
 end
