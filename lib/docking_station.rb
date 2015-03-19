@@ -1,7 +1,17 @@
 require_relative 'bike'
 
 class DockingStation
-  attr_accessor :bike
-  alias_method :release_bike, :bike
-  alias_method :dock, :bike=
+  def initialize
+    @bikes = []
+  end
+
+  def dock bike
+    fail 'Station Full' if @bikes.length >= 20
+    @bikes << bike
+  end
+
+  def release_bike
+    fail 'No Bikes Available' if @bikes.empty?
+    @bikes.pop
+  end
 end

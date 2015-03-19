@@ -1,8 +1,8 @@
-require 'docking_station'
 require 'capybara/rspec'
+require 'docking_station'
 require 'bike'
 
-feature 'member of the public access bike' do
+feature 'member of public accesses bike' do
   scenario 'docking station releases a bike that is not broken' do
     docking_station = DockingStation.new
     docking_station.dock Bike.new
@@ -15,3 +15,19 @@ feature 'member of the public access bike' do
     expect { docking_station.release_bike }.to raise_error 'No Bikes Available'
   end
 end
+
+feature 'memebr of public docking bike' do
+  scenario 'docking station unable to receive as full' do
+    docking_station = DockingStation.new
+    20.times { docking_station.dock Bike.new }
+    expect { docking_station.dock Bike.new }.to raise_error 'Station Full'
+  end
+end
+
+# feature 'maintainer increases capavity of a station' do
+#   scenario 'docking station capacity is increased' do
+#     docking_station = DockingStation.new
+#     docking_station.increase_capacity :number
+#     expect { docking_station.capacity }.to eq :number
+#   end
+# end
