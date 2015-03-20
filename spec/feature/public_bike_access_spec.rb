@@ -24,10 +24,20 @@ feature 'memebr of public docking bike' do
   end
 end
 
-# feature 'maintaner increases station capacity' do
-#   scenario 'docking station able to have any capacity' do
-#     docking_station = DockingStation.new
-#     docking_station.increase_capacity num
-#     expect(docking_station.capacity num).to eq num
-#   end
-# end
+feature 'maintaner increases capacity of a station' do
+  scenario 'to 40' do
+    docking_station = DockingStation.new
+    docking_station.capacity = 40
+    expect(docking_station.capacity).to eq 40
+  end
+end
+
+feature 'docking station does not release broken bikes' do
+  scenario 'when there is only broken bike station raises error' do
+    docking_station = DockingStation.new
+    broken_bike = Bike.new
+    broken_bike.break
+    docking_station.dock broken_bike
+    expect { docking_station.release_bike }.to raise_error 'No Bikes Available'
+  end
+end
