@@ -10,7 +10,7 @@ describe DockingStation do
   end
 
   it 'can dock a bike' do
-    expect(subject.dock :bike).to eq nil
+    expect(subject.dock double :bike).to eq nil
   end
 
   it 'raises error when no bikes available' do
@@ -18,8 +18,8 @@ describe DockingStation do
   end
 
   it 'raises error when full' do
-    20.times { subject.dock double :bike }
-    expect { subject.dock double :bike }.to raise_error 'Station Full'
+    20.times { subject.dock double double :bike }
+    expect { subject.dock double double :bike }.to raise_error 'Station Full'
   end
 
   it { is_expected.to respond_to :increase_capacity }

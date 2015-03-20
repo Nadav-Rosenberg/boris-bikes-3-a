@@ -24,10 +24,10 @@ feature 'memebr of public docking bike' do
   end
 end
 
-feature 'maintaner increases station capacity' do
-  scenario 'docking station able to have any capacity' do
-    docking_station = DockingStation.new
-    docking_station.increase_capacity :num
-    expect { docking_station.capacity }.to eq :num
-  end
-end
+# feature 'maintaner increases station capacity' do
+#   scenario 'docking station able to have any capacity' do
+#     docking_station = DockingStation.new
+#     docking_station.increase_capacity num
+#     expect(docking_station.capacity num).to eq num
+#   end
+# end

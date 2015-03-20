@@ -1,9 +1,9 @@
 require_relative 'bike'
 
 class DockingStation
-  DEFAULT_CAPACITY = 20
   def initialize
     @bikes = []
+    @capacity = 20
   end
 
   def dock bike
@@ -17,13 +17,13 @@ class DockingStation
     @bikes.pop
   end
 
-  def increase_capacity _num
+  def increase_capacity
   end
 
   private
 
   def full?
-    @bikes.length >= DEFAULT_CAPACITY
+    @bikes.length >= @capacity
   end
 
   def empty?
